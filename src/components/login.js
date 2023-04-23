@@ -9,7 +9,7 @@ function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const navigate = useNavigate()
     const onFormSubmit = async (userDetails) => {
-        let response = await axios.post('http://localhost:4000/users/login', userDetails);
+        let response = await axios.post('/users/login', userDetails);
 
         if (response.data.message === "Wrong user name" || response.data.message === "incorrect password") {
             alert(response.data.message)

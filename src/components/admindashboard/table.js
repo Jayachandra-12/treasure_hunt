@@ -9,7 +9,7 @@ function Table() {
         if (localStorage.getItem("token") == null) navigate('/login')
     }, [])
     useEffect(() => {
-        axios.get('http://localhost:4000/users/getallusersscore')
+        axios.get('/users/getallusersscore')
             .then(res => {
                 setUsersScore(res.data.payload)
             })

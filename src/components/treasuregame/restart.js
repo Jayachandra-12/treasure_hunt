@@ -16,7 +16,7 @@ function Restart() {
     },[])
     const navigation = async() => {
         let userObj = {username : localStorage.getItem("username")}
-        let res = await axios.post('http://localhost:4000/users/increase',userObj)
+        let res = await axios.post('/users/increase',userObj)
         navigate('/first')
     }
     

@@ -6,27 +6,12 @@ require('dotenv').config()
 
 app.use(express.static(path.join(__dirname,'./build')))
 
-const mclient = require('mongodb').MongoClient
-
-//Database URL
-const DBurl = process.env.DATABASE_CONNECTION_URL;
-
-mclient.connect(DBurl)
-    .then((client) => {
-        let dbObj = client.db("treasurehunt")
-        let usersCollection = dbObj.collection("users")
-        let leaderboardCollection = dbObj.collection("leaderboard")
-        let reviewsCollection = dbObj.collection("usersreview")
-        app.set("usersCollection", usersCollection)
-        app.set("leaderboardCollection", leaderboardCollection)
-        app.set("reviewsCollection",reviewsCollection)
-        console.log("db connection success")
-    })
-    .catch(err => console.log(err))
-
 app.use(express.json())
 
 
+app.get("/test",(req,res)=>{
+    res.send("<h1>Success!</h1>")
+})
 app.use('/users', usersApp)
 
 

@@ -26,7 +26,7 @@ function First() {
     const [elapsedTime, setElapsedTime] = useState(Date.now() - startTime);
 
     useEffect(() => {
-        axios.post('http://localhost:4000/users/attempt', userObj)
+        axios.post('/users/attempt', userObj)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }, [])

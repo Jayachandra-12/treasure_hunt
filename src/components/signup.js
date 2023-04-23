@@ -8,7 +8,7 @@ function Signup() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const onFormSubmit = async(userDetails) => {
         console.log(userDetails)
-        let newUserEntry = await axios.post('http://localhost:4000/users/createuser', userDetails)
+        let newUserEntry = await axios.post('/users/createuser', userDetails)
         if(newUserEntry.data.message == "Username already exists") {
             alert(newUserEntry.data.message)
         }

@@ -40,7 +40,7 @@ function Fifth() {
 
 
     useEffect(() => {
-        axios.post('http://localhost:4000/users/updatearray', userObj)
+        axios.post('/users/updatearray', userObj)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }, [])

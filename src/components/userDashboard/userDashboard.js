@@ -13,7 +13,7 @@ function UserDashboard() {
     },[])
     
     useEffect(() => {
-        axios.post('http://localhost:4000/users/getuserscore', un)
+        axios.post('/users/getuserscore', un)
             .then(res => {
                 if (res.data !== '') {
                     setPlayed(true)

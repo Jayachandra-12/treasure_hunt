@@ -18,7 +18,7 @@ function Homepage() {
             email : email,
             message : message
         }
-        let res = await axios.post('http://localhost:4000/users/review', userReview)
+        let res = await axios.post('/users/review', userReview)
         if(res.data.message == "review send") {
             alert("review sent")
         }

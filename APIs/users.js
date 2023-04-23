@@ -4,13 +4,22 @@ const expressAsyncHandler = require('express-async-handler')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
+const mclient = require('mongodb').MongoClient
+const DBurl = process.env.DATABASE_CONNECTION_URL;
+
 
 usersApp.use(express.json())
 
+async function getCollection(s) {
+    const client = await mclient.connect(DBurl)
+    let dbObj = client.db("treasurehunt")
+    let collectionObj = dbObj.collection(s)
+    return collectionObj
+}
 
 //GET ALL USERS
 usersApp.get('/getusers', expressAsyncHandler(async (request, response) => {
-    let usersCollection = request.app.get("usersCollection")
+    let usersCollection = await getCollection("users")
 
     let usersObj = await usersCollection.find().toArray()
     response.send({ message: "all users", payload: usersObj })
@@ -19,7 +28,7 @@ usersApp.get('/getusers', expressAsyncHandler(async (request, response) => {
 //create user
 usersApp.post('/createuser', expressAsyncHandler(async (request, response) => {
     let userObj = request.body
-    let usersCollection = request.app.get("usersCollection")
+    let usersCollection = await getCollection("users")
     let userObjDb = await usersCollection.findOne({ username: userObj.username })
     if (userObjDb !== null) response.send({ message: "Username already exists" })
     else {
@@ -34,7 +43,7 @@ usersApp.post('/createuser', expressAsyncHandler(async (request, response) => {
 //login
 usersApp.post('/login', expressAsyncHandler(async (request, response) => {
     let userObj = request.body
-    let usersCollection = request.app.get("usersCollection")
+    let usersCollection = await getCollection("users")
     let userObjDb = await usersCollection.findOne({ username: userObj.username, account: userObj.account })
 
     if (userObjDb == null) response.send({ message: "Wrong user name" })
@@ -53,7 +62,7 @@ usersApp.post('/login', expressAsyncHandler(async (request, response) => {
 //add attempts
 usersApp.post('/attempt', expressAsyncHandler(async (request, response) => {
     let userObj = request.body
-    let leaderboardCollection = request.app.get("leaderboardCollection")
+    let leaderboardCollection = await getCollection("leaderboard")
     let existed = await leaderboardCollection.findOne({ username: userObj.username })
     if (!existed) {
         await leaderboardCollection.insertOne(userObj)
@@ -64,7 +73,7 @@ usersApp.post('/attempt', expressAsyncHandler(async (request, response) => {
 //increasing attempt
 usersApp.post('/increase', expressAsyncHandler(async (request, response)=> {
     let userObjUsername = request.body.username
-    let leaderboardCollection = request.app.get("leaderboardCollection")
+    let leaderboardCollection = await getCollection("leaderboard")
     const update = { $inc : {attempt : 1}}
     await leaderboardCollection.updateOne({username : userObjUsername}, update)
     response.send({message : "attempt increased"})
@@ -73,7 +82,7 @@ usersApp.post('/increase', expressAsyncHandler(async (request, response)=> {
 //update the values
 usersApp.post('/updatearray', expressAsyncHandler(async (request, response) => {
     let userObjUsername = request.body.username
-    let leaderboardCollection = request.app.get("leaderboardCollection")
+    let leaderboardCollection = await getCollection("leaderboard")
     let f1 = request.body.first
     let f2 = request.body.second
     let f3 = request.body.third
@@ -86,7 +95,7 @@ usersApp.post('/updatearray', expressAsyncHandler(async (request, response) => {
 
 //get user leaderboard
 usersApp.post('/getuserscore', expressAsyncHandler(async (request, response)=> {
-    let leaderboardCollection = request.app.get("leaderboardCollection")
+    let leaderboardCollection = await getCollection("leaderboard")
     let un = request.body.username
     let res = await leaderboardCollection.findOne({username : un})
     response.send(res)
@@ -94,7 +103,7 @@ usersApp.post('/getuserscore', expressAsyncHandler(async (request, response)=> {
 
 //get all users
 usersApp.get('/getallusersscore', expressAsyncHandler(async (request, response) => {
-    let leaderboardCollection = request.app.get("leaderboardCollection")
+    let leaderboardCollection = await getCollection("leaderboard")
 
     let usersObj = await leaderboardCollection.find().toArray()
     response.send({ message: "all users", payload: usersObj })
@@ -103,14 +112,14 @@ usersApp.get('/getallusersscore', expressAsyncHandler(async (request, response) 
 //posting users review
 usersApp.post('/review', expressAsyncHandler(async (request, response) => {
     let userObj = request.body
-    let reviewsCollection = request.app.get("reviewsCollection")
+    let reviewsCollection = await getCollection("usersreview")
     await reviewsCollection.insertOne(userObj)
     response.send({message : "review send"})
 }))
 
 //get user reviews
 usersApp.get('/getreview', expressAsyncHandler(async (request, response)=> {
-    let reviewsCollection = request.app.get("reviewsCollection")
+    let reviewsCollection = await getCollection("usersreview")
 
     let usersObj = await reviewsCollection.find().toArray()
     response.send({ message: "all users", payload: usersObj })

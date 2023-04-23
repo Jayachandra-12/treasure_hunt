@@ -9,7 +9,7 @@ function Review() {
         if (localStorage.getItem("token") == null) navigate('/login')
     }, [])
     useEffect(()=>{
-        axios.get('http://localhost:4000/users/getreview')
+        axios.get('/users/getreview')
         .then(res => setReview(res.data.payload))
         .catch(err => console.log(err))
     }, [])
