@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+Steps to Set up the project
+---------------------------
+1. install all dependencies using "npm install "
+2. create .env file based on sample.env
+3. build the application using "npm run build"
+4. run the server using "node server.js"
+5. open http://localhost:4000
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+soft skills accessed by the puzzle
+----------------------------------
+1. Problem Solving
+2. Patience
+3. Attention to detail
+4. Ability to solve quick riddles
 
-In the project directory, you can run:
+possible ways to solve the puzzle
+---------------------------------
+1. sign up and login
+2. click on play now
+3. Read the instructions in the first page and go with the flow.
+4. click on get started
+5. You will be directed to the house.
+6. You have two choices to search the house.
+    6.1 ask the permission of the owner and search the house
+        6.1.1 If you ask the permission you will be allowed to search the house
+    6.2 Do not ask the permission of the owner and search the house
+        6.2.1 If you do not ask owner's permission You will be caught by police and asked to restart the game --- deadend
+7. Now you will be asked a riddle 
+    I have four legs, but I don't have any feet. You use me when it's time to eat. What am I? 
+    answer - table
+8. you will find the key on table but don't the location of treasure
+9. you will be asked a riddle to get the clue for the location of treasure
+    Tall and solid, all homes have me. To get me open, you'll need a key. what am i? 
+    answer - front door
+10. you will find X mark at the front door and You need to dig it up to check if treasure present inside but you don't have any material to do so
+11. Now you will be asked a riddle
+    I am a place where nature thrives, Butterflies, bees and bugs arrive, You'll find me in the backyard or the park, A place to relax, or take a walk. What am I?
+    answer - garden
+12. you will find shovel on the garden use that to dig the X mark present at the front door
+13. You will find the treasure box, use the key to open the box.
+14. Hoooraaay, you found the treasure.
+15. Now you got an important decision to make
+    15.1 Report the police about the treasure
+        15.1.1 If you do this you will be appreciated by the police
+    15.2 do not report the police about the treasure
+        15.2.1 You will be caught by police and asked to restart the game --- deadend
+16. As a compensation you get 50 percent of the treasure. Congratulations..... you have completed the game
+17. You will be redirected to users dashboard and you can check your result in the leaderboard
 
-### `npm start`
+how admin can access
+--------------------
+1. login as admin (credentials { username : "admin", password : "admin1"} )
+2. after login, you can see tabular, graphical represntation of data. Admin can also see leader board and users review
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+how leader board is evaluated
+-----------------------------
+rank is given based on the given formula
+formula = attempt*100 + time taken to solve the puzzle in seconds
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+features and additional features implemented
+--------------------------------------------
+1. login
+2. signup
+3. leaderboard
+4. users review
+5. data visualisation(admin)
+6. User analytics
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
