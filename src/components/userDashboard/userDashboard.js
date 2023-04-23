@@ -28,7 +28,7 @@ function UserDashboard() {
     return (
         <div className='container m-5'>
             <p className="display-1 text-center mb-5">tresure hunt</p>
-            <div className="card d-block mx-auto" style={{ width: "25rem" }}>
+            <div className="card d-block mx-auto" style={{ width: "25rem" , maxWidth: "100vw"}}>
                 <img className="card-img-top" src={imageOne} alt="Card image cap" />
                 <div className="card-body">
                     <h5 className="card-title">Find the Treasure</h5>
