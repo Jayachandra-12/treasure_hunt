@@ -29,7 +29,7 @@ possible ways to solve the puzzle
 7. Now you will be asked a riddle 
     I have four legs, but I don't have any feet. You use me when it's time to eat. What am I? 
     answer - table
-8. you will find the key on table but don't the location of treasure
+8. you will find the key on table but don't know the location of treasure
 9. you will be asked a riddle to get the clue for the location of treasure
     Tall and solid, all homes have me. To get me open, you'll need a key. what am i? 
     answer - front door
@@ -51,7 +51,7 @@ possible ways to solve the puzzle
 how admin can access
 --------------------
 1. login as admin (credentials { username : "admin", password : "admin1"} )
-2. after login, you can see tabular, graphical represntation of data. Admin can also see leader board and users review
+2. after login, you can see tabular, graphical represntation of data. Admin can also see leaderboard and users review
 
 how leader board is evaluated
 -----------------------------
