@@ -1,0 +1,11 @@
+.img {
+    height: 700px;
+    width: auto;
+}
+
+.timer {
+    position: absolute;
+    top : 0%;
+    right: 0%;
+    color: white;
+}

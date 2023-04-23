@@ -1,0 +1,8 @@
+/* .card:hover {
+    transform: scale(1.2);
+    border: rounded;
+} */
+
+.card {
+    border : rounded;
+}
