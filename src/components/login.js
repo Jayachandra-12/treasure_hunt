@@ -46,7 +46,7 @@ function Login() {
                                     <option value="user">User</option>
                                 </select>
                                 <div className="form-outline mb-4">
-                                    <label className="form-label" htmlFor="form3Example3">Email address</label>
+                                    <label className="form-label" htmlFor="form3Example3">username</label>
                                     <input type="text" id="form3Example3" className="form-control form-control-lg"
                                         placeholder="Enter a valid username" {...register("username", { required: true })} />
                                     {errors.text?.type === 'required' && <p className='text-danger lead'>*username Required</p>}

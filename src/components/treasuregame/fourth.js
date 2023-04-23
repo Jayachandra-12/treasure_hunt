@@ -16,7 +16,7 @@ function Fourth() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     let [garden, setGarden] = useState(false)
     const riddleChecker = (riddleObj) => {
-        if (riddleObj.garden == "garden") {
+        if (riddleObj.garden.toLowerCase() == "garden") {
             alert("correct answer")
             setGarden(true)
         }

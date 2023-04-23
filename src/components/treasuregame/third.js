@@ -16,7 +16,7 @@ function Third() {
     let [table, setTable] = useState(false)
     const riddleChecker = (riddleObj) => {
         if (riddleObj.door == undefined) {
-            if (riddleObj.ans == "table") {
+            if (riddleObj.ans.toLowerCase() == "table") {
                 alert("correct answer")
                 setTable(true)
             }
@@ -25,7 +25,7 @@ function Third() {
             }
         }
         else {
-            if (riddleObj.door != undefined && riddleObj.door == "front door") {
+            if (riddleObj.door != undefined && riddleObj.door.toLowerCase() == "front door") {
                 alert("correct answer")
                 navigation()
             }
