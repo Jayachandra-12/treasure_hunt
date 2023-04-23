@@ -14,11 +14,11 @@ function First() {
     let userObj = {
         username: localStorage.getItem("username"),
         attempt: 1,
-        first: 0,
-        second: 0,
-        third: 0,
-        fourth: 0,
-        total: 0
+        first: "23:59",
+        second: "23:59",
+        third: "23:59",
+        fourth: "23:59",
+        total: "23:59"
     }
     const [startTime, setStartTime] = useState(
         localStorage.getItem('startTime') || Date.now()
