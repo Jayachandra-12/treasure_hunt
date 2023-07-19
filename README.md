@@ -1,3 +1,7 @@
+Application Link
+----------------
+https://treasurehunt-omega.vercel.app/
+
 Steps to Set up the project
 ---------------------------
 1. install all dependencies using "npm install "
